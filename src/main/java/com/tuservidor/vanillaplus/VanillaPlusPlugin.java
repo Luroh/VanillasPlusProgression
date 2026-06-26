@@ -18,8 +18,9 @@ import com.tuservidor.vanillaplus.set.SetManager;
 import com.tuservidor.vanillaplus.teleport.HomeManager;
 import com.tuservidor.vanillaplus.teleport.TpaManager;
 import com.tuservidor.vanillaplus.unlock.UnlockManager;
+import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.PluginCommand;
-import org.bukkit.command.TabExecutor;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -100,15 +101,19 @@ public class VanillaPlusPlugin extends JavaPlugin {
         setTabExecutor("tpdeny", tpaCommands);
     }
 
-    private void setTabExecutor(String commandName, TabExecutor executor) {
-        PluginCommand command = getCommand(commandName);
-        if (command == null) {
-            getLogger().warning("Comando no encontrado en plugin.yml: " + commandName);
-            return;
-        }
-        command.setExecutor(executor);
-        command.setTabCompleter(executor);
+    private void setTabExecutor(String commandName, CommandExecutor executor) {
+    PluginCommand command = getCommand(commandName);
+    if (command == null) {
+        getLogger().warning("Comando no encontrado en plugin.yml: " + commandName);
+        return;
     }
+
+    command.setExecutor(executor);
+
+    if (executor instanceof TabCompleter tabCompleter) {
+        command.setTabCompleter(tabCompleter);
+    }
+}
 
     public ConfigManager configManager() { return configManager; }
     public MessageManager messageManager() { return messageManager; }
