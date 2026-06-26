@@ -1,0 +1,28 @@
+name: VanillaPlusProgression
+version: 1.0.0
+main: com.tuservidor.vanillaplus.VanillaPlusPlugin
+api-version: '1.21'
+author: ServerTeam
+description: Plugin Survival Vanilla+ con progresion Early/Mid/Late, sets pasivos, plantas, pesca, homes y TPA.
+commands:
+  unlockpp:
+    description: Desbloquea categorias del plugin.
+    usage: /unlockpp <early|mid|late|plantas|pesca|utils>
+    permission: vanilla_plus.op
+  sethome:
+    description: Guarda un home.
+  home:
+    description: Teletransporta a un home.
+  delhome:
+    description: Elimina un home.
+  homes:
+    description: Lista homes.
+  tpa:
+    description: Solicitud de teletransporte.
+  tpaccept:
+    description: Acepta TPA.
+  tpdeny:
+    description: Rechaza TPA.
+permissions:
+  vanilla_plus.op:
+    default: op

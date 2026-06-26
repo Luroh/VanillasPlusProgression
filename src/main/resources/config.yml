@@ -1,0 +1,22 @@
+teleport:
+  warmup_seconds: 5
+  cancel_on_move_block: true
+  cancel_on_damage: true
+  tpa_request_seconds: 60
+  tpa_cooldown_seconds: 60
+  allow_cross_world_tpa: true
+homes:
+  default_limit: 1
+  home_crystal_increment: 1
+  max_limit: 10
+amulets:
+  require_offhand: true
+performance:
+  allow_locked_drops: false
+  save_interval_minutes: 5
+  debug: false
+fishing:
+  legendary_cooldown_seconds: 45
+plants:
+  allow_tasks_for_registered_locations: true
+  growth_task_seconds: 90
